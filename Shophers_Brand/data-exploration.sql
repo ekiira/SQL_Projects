@@ -1,3 +1,5 @@
+-- Shophers is an African female clothing brand located in Lagos Nigeria. They opened their online store in Febraruay 2023 and would like to get insights from the first month. 
+
 -- QUES 1. What are the most and least rated products
 SELECT 
     name,

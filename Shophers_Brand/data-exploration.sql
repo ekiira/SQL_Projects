@@ -52,6 +52,7 @@ AS (
     SELECT 
         customer_id,
         name,
+        '$' + CONVERT(varchar(10), SUM(total_price)) AS total_amount_spent,
         SUM(total_price)  AS total
     FROM 
         shophers.customers AS customers
@@ -68,7 +69,7 @@ AS (
 SELECT 
     customer_id,
     name AS customer_name,
-    total
+    total_amount_spent
 FROM amount_spent, max_price
 WHERE total = max
 
@@ -83,7 +84,7 @@ GROUP BY CONVERT(DATE, date)
 ORDER BY num_of_orders DESC
 
 
---  QUES 6. What are the top locations customers order from
+--  QUES 6. Number of orders in each location 
 SELECT 
     city + ', ' + country AS location,
     COUNT(city) AS num_of_orders
